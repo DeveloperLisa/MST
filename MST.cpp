@@ -82,5 +82,4 @@ int main(int argc, char** args){
     }
     //return sum of the weights
     std::cout << MSTsum;
-    return MSTsum;
 }
