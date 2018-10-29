@@ -5,7 +5,7 @@ public:
 int *parents;
 int *size;
 
-public: UnionFind(int v);
+UnionFind(int v);
 
 int find(int x);
 
