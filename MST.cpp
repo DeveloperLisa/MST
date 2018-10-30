@@ -41,17 +41,11 @@ void fill_vector(std::vector<Edge>& edges, char *filename, int v){
         in >> end;
         in >> weight;
         
-        if(start > v){
-            v = start;
-        }
-        
-        if (end > v) {
-            v = end;
-        }
+        if(start > v) v = start;
+        if(end > v) v = end;
 
         Edge e(start, end, weight);
-        edges.push_back(e);
-         
+        edges.push_back(e);    
     }
 }
 
@@ -59,7 +53,7 @@ int main(int argc, char** args){
 
     int n = std::atoi(args[1]);
     char* filename = args[2];
-    int v = 0;
+    int v;
 
     std::vector<Edge> edges;
     edges.reserve(n);

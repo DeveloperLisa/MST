@@ -2,10 +2,7 @@
 #include "UnionFind.h"
 #include<vector>
 
-UnionFind::UnionFind(int v){
-    parents.reserve(v);
-    size.reserve(v);
-
+UnionFind::UnionFind(int v) : parents(v), size(v) { 
     for(int i = 0; i < v; i++){
         parents.push_back(i);
         size.push_back(1);
@@ -29,11 +26,11 @@ void UnionFind::join(const int & y, const int & z){
 
     // make smaller root point to larger one
     if (size[rootP] < size[rootQ]) {
-    parents[rootP] = rootQ;
-    size[rootQ] += size[rootP];
+        parents[rootP] = rootQ;
+        size[rootQ] += size[rootP];
     } else {
-    parents[rootQ] = rootP;
-    size[rootP] += size[rootQ];
+        parents[rootQ] = rootP;
+        size[rootP] += size[rootQ];
     }
 }
     
