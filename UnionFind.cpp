@@ -2,10 +2,12 @@
 #include "UnionFind.h"
 #include<vector>
 
-UnionFind::UnionFind(int v) : parents(v), size(v) { 
+UnionFind::UnionFind(int v) : parents(v), size(v) {
+    std::vector<int> temp(v, 0);
+
     for(int i = 0; i < v; i++){
-        parents.push_back(i);
-        size.push_back(1);
+        parents[i] = i;
+        size[i] = 1;
     }
 }
 

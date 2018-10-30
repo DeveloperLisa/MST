@@ -24,9 +24,8 @@ struct Edge
     }
 };
 
-
 //read in the file format: vertex1 vertex2 edgeWeight 
-void fill_vector(std::vector<Edge>& edges, char *filename, int v){
+void fill_vector(std::vector<Edge>& edges, char *filename, int& v){
     long start;
     long end;
     long weight;
@@ -53,7 +52,7 @@ int main(int argc, char** args){
 
     int n = std::atoi(args[1]);
     char* filename = args[2];
-    int v;
+    int v = 0;
 
     std::vector<Edge> edges;
     edges.reserve(n);
@@ -62,7 +61,7 @@ int main(int argc, char** args){
     //sort edges by weight from least to greatest
     std::sort(edges.begin(), edges.end());
 
-    UnionFind uf(v);
+    UnionFind uf(v+1);
     long MSTsum = 0;
     
     for(int i = 0; i < edges.size(); i++){
