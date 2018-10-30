@@ -1,13 +1,14 @@
 //author: Lisa Hartmann Jensen
 #include "UnionFind.h"
+#include<vector>
 
 UnionFind::UnionFind(int v){
-    parents [v];
-    size[v];
+    parents.reserve(v);
+    size.reserve(v);
 
     for(int i = 0; i < v; i++){
-        parents[i] = i;
-        size[i] = 1;
+        parents.push_back(i);
+        size.push_back(1);
     }
 }
 
@@ -20,7 +21,7 @@ int UnionFind::find(int x){
 }
 
 //join two elements if they do not have the same root
-void UnionFind::join(int y, int z){
+void UnionFind::join(const int & y, const int & z){
     int rootP = find(y);
     int rootQ = find(z);
     
@@ -38,6 +39,6 @@ void UnionFind::join(int y, int z){
     
 
 //are these two connected
-bool UnionFind::connected(int y, int z){
+bool UnionFind::connected(const int & y, const int & z){
     return find(y) == find(z);
 }

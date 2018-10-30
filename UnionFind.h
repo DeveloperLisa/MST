@@ -1,16 +1,16 @@
+#include<vector>
 
 class UnionFind{
 
-public:
-int *parents;
-int *size;
+std::vector<int> parents;
+std::vector<int> size;
 
-UnionFind(int v);
+public: UnionFind(int v);
 
 int find(int x);
 
-void join(int y, int z);
+void join(const int & y, const int & z);
 
-bool connected(int y, int z);
+bool connected(const int & y, const int & z);
 
 };
